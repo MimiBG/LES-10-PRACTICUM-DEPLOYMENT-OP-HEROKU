@@ -8,9 +8,5 @@ import domain.Account;
 public interface UserDao {
 	public String findRoleForUser(String username, String password) throws SQLException;
 	public String zoekRolGebruiker(String gebruikersnaam, String wachtwoord) throws SQLException;
-	public boolean create(Account account) throws SQLException;
-	public boolean createP5(Account account) throws SQLException;
-	
-	public boolean createCharityAccount(Account account) throws SQLException;
 	
 }

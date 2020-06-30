@@ -45,5 +45,6 @@ public class AuthenticationFilter implements ContainerRequestFilter {
     }
     
     requestCtx.setSecurityContext(msc);
+    System.out.println(msc);
   }
 }

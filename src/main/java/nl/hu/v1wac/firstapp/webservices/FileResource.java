@@ -23,27 +23,6 @@ import org.glassfish.jersey.media.multipart.FormDataParam;
 @Path("/files")
 public class FileResource {
 
-	/* OM DIT WERKEND TE KRIJGEN, MOET JE DE VOLGENDE DEPENDENCY AAN JE POM.XML TOEVOEGEN:
-	 * 
-	 *  <dependency>
-	 *      <groupId>org.glassfish.jersey.media</groupId>
-	 *      <artifactId>jersey-media-multipart</artifactId>
-	 *      <version>2.27</version>
-	 *  </dependency>
-	 * 
-	 * 
-	 * DAARNA MOET JE OOK DE VOLGENDE PARAMETER AAN DE JERSEY-SERVLET TOEVOEGEN IN JE WEB.XML
-	 * 
-	 *  <init-param>
-	 *      <param-name>jersey.config.server.provider.classnames</param-name>
-	 *      <param-value>org.glassfish.jersey.media.multipart.MultiPartFeature</param-value>
-	 *  </init-param>
-	 * 
-	 * 
-	 * Aanvullende informatie kan gevonden worden op https://jersey.github.io/documentation/latest/media.html#multipart
-	 * Zie index.html voor de clientside. Deze code vereist geen verdere aanpassingen aan je project. 
-	 * 
-	 */
 	
 	@POST
 	@Consumes(MediaType.MULTIPART_FORM_DATA)

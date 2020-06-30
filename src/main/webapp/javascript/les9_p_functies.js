@@ -69,8 +69,7 @@ function showWeather(latitude, longitude, city) {
 		
 	} else {
 		var json = JSON.parse(window.localStorage.getItem(city));
-		
-		//console.log("existed: "+ json);
+
 		console.log(city + " OPGEHAALD UIT LOCALSTORAGE!");
 		document.getElementById("temperatuur").innerHTML = "Temperatuur: " + "&nbsp;" + (json.main.temp - 273).toFixed(1) + " C";
 		document.getElementById("luchtvochtigheid").innerHTML = "Luchtvochtigheid: " + "&nbsp;" + json.main.humidity + "%";
@@ -144,11 +143,7 @@ function loadCountries() {
 			 cell5.innerHTML = object.population;
 			 cell6.innerHTML = '<input id="'+ object.code + '" type="submit" value="Wijzig">';
 			 cell7.innerHTML = '<input id="'+ object.code + '" type="submit" value="Verwijder">';
-			 
-			 //cell6.innerHTML = '<input id="'+ object.code + '" onclick="Wijzig(' + object.code + ')" type="submit" value="Wijzig">';
-			 //cell7.innerHTML = '<input id="' + object.code + '" onclick="Verwijder(' + object.code + ')" type="submit" value="Verwijder">';
-			 
-			 // querySelector op waarde van value en vervolgens functie uitvoeren.
+
 			 
 			 var valueVerwijder = document.querySelector("div.tabelBox input[value='Verwijder']");
 			 valueVerwijder.addEventListener("click", verwijderFunc);
@@ -161,8 +156,6 @@ function loadCountries() {
 	  });
 }
 
-//console.log(getElementById("voegToe").value);
-//document.getElementById("voegToe").addEventListener("click", addCountryFuncForm);
 
 var voegToe = document.querySelector("#voegToe");
 voegToe.addEventListener("click", addCountryFuncForm);
@@ -255,6 +248,11 @@ function wijzigFunc(){
 }
 
 function verwijderFunc(){
+	var deleteCheck = {
+		method: 'DELETE',
+		headers : {
+			'Authorization': 'Bearer ' + window.sessionStorage.getItem("myJWT") }
+	}
 	var id = this.id;
 	fetch("restservices/countries/" + id, deleteCheck)
 		.then(function (response) {
@@ -265,11 +263,7 @@ function verwijderFunc(){
 		.catch(error => console.log(error));
 }
 
-var deleteCheck = {
-		method: 'DELETE',
-		headers : {
-		'Authorization': 'Bearer ' + window.sessionStorage.getItem("myJWT") }
-		}
+
 
 initPage();
 loadCountries();

@@ -1,5 +1,6 @@
 package nl.hu.v1wac.firstapp.webservices;
 
+import java.security.Principal;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
@@ -49,6 +50,8 @@ public class CountryResource {
 			@FormParam("surface") double surface, 
 			@FormParam("population") int population) throws SQLException {
 		boolean role = sc.isUserInRole("user");
+		String naam = sc.getUserPrincipal().getName();
+		System.out.println(naam);
 		System.out.println("HEEFT ROL USER: " + role + " (in countryresource @put)");
 		if (role) {
 			Country country = service.updateCountry(code, name, capital, region, surface, population);
@@ -74,14 +77,14 @@ public class CountryResource {
 		System.out.println("HEEFT ROL USER: " + role + " (in countryresource @delete)");
 		if (role) {
 			if (service.deleteCountry(code)) {
-				//return Response.status(404).build();
-				return Response.ok().build();
-			}
+				Map<String, String> bericht = new HashMap<String, String>();
+				bericht.put("resultaat", "Country succesvol verwijdert!");
+				return Response.status(200).entity(bericht).build();
+			} 
 		} 
 		Map<String, String> messages = new HashMap<String, String>();
 		messages.put("error", "ACCOUNT IS NIET GEMACHTIGD TAAK UIT TE VOEREN!");
-		System.out.println("ACCOUNT IS NIET GEMACHTIGD TAAK UIT TE VOEREN!");
-		return Response.status(409).entity(messages).build();
+		return Response.status(403).entity(messages).build();
 	}
 
 }

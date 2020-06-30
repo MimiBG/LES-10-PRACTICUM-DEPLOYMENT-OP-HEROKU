@@ -13,6 +13,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import domain.Account;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -23,6 +24,7 @@ import persistence.UserPostgresDaoImpl;
 @Path("/authentication")
 public class AuthenticationResource {
   final static public Key key = MacProvider.generateKey();
+  private UserDao dao = new UserPostgresDaoImpl();
 
   @POST
   @Produces(MediaType.APPLICATION_JSON)
@@ -30,10 +32,9 @@ public class AuthenticationResource {
   public Response authenticateUser(@FormParam("username") String gebruikersnaam, 
                                    @FormParam("password") String wachtwoord) throws SQLException {
     try {
-      // Authenticate the user against the database
-      UserDao dao = new UserPostgresDaoImpl();
-      //String role = dao.findRoleForUser(gebruikersnaam, wachtwoord);
+
       String role = dao.zoekRolGebruiker(gebruikersnaam, wachtwoord);
+      
       
       if (role == null) { throw new IllegalArgumentException("No user found!");  } 
       
@@ -48,7 +49,7 @@ public class AuthenticationResource {
         { return Response.status(Response.Status.UNAUTHORIZED).build(); }
   }
 
-  private String createToken(String username, String role) throws JwtException {
+  private String createToken(String username, String role) throws JwtException, SQLException {
 	    Calendar expiration = Calendar.getInstance();
 	    expiration.add(Calendar.MINUTE, 30);
 	  

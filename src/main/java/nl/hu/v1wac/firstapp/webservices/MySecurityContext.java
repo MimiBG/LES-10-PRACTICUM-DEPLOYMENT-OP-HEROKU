@@ -7,10 +7,17 @@ public class MySecurityContext implements SecurityContext {
 	private String name;
 	private String role;
 	private boolean isSecure;
+	private String email;
 
 	public MySecurityContext(String name, String role, boolean isSecure) {
 		this.name = name;
 		this.role = role;
+	}
+	
+	public MySecurityContext(String name, String role, boolean isSecure, String email) {
+		this.name = name;
+		this.role = role;
+		this.email = email;
 	}
 
 	public Principal getUserPrincipal() {
@@ -19,6 +26,11 @@ public class MySecurityContext implements SecurityContext {
 				return name;
 			}
 		};
+	}
+	
+
+	public String getEmail() {
+		return email;
 	}
 	
 	public String getRole() {

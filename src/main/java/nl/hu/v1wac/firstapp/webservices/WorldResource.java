@@ -22,14 +22,16 @@ import nl.hu.v1wac.firstapp.model.WorldService;
 @Path("/countries")
 public class WorldResource {
 	private WorldService service = ServiceProvider.getWorldService();
+
 	
 	@GET
 	@Produces("application/json")
-	public String getCountries() {
+	public Response getCountries() {
+		System.out.println("komt hier in");
 		WorldService service = ServiceProvider.getWorldService();
-		JsonArray countryArray = buildJsonCountryArray(service.getAllCountries());
-
-		return countryArray.toString();
+		List<Country> c = service.getAllCountries();
+		return Response.ok(c).build();
+		
 	}
 	
 	

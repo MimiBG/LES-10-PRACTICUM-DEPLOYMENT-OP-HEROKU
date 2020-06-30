@@ -100,6 +100,7 @@ public class Account {
 		this.wachtwoord = wachtwoord;
 	}
 
+	public Account() {};
 	
 	
 	public Account(String voorletter, String tussenvoegsel, String achternaam, String geboortedatum, String geslacht,
@@ -134,8 +135,6 @@ public class Account {
 		this.telefoonnummer = telefoonnummer;
 		this.adres = adres;
 	}
-	
-	
 
 	public String getUsername() {
 		return Username;

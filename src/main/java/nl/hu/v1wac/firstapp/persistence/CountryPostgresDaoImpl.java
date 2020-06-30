@@ -18,7 +18,9 @@ public class CountryPostgresDaoImpl extends PostgresBaseDao implements CountryDa
 	private List<Country> selectCountry(String query) {
 		List<Country> results = new ArrayList<Country>();
 
+		System.out.println("inside selectCountry()");
 		try (Connection con = super.getConnection()) {
+			System.out.println("Connection set.");
 			Statement stmt = con.createStatement();
 			ResultSet dbResultSet = stmt.executeQuery(query);
 

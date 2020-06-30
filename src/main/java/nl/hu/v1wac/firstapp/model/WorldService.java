@@ -54,65 +54,9 @@ public class WorldService {
 		return c;
 	}
 	
-	public Account addAccount(String username, String password, String role) throws SQLException {
-		System.out.println("TEST1");
-		Account a = new Account(username, password, role);
-		a.setUsername(username);
-		a.setPassword(password);
-		a.setRole(role);
-		
-		if (userDAO.create(a)) {
-			return a;
-		}
-		
-		return a;
-	}
-	
-	public Account addCharityAccount(String voorletter, String tussenvoegsel, String achternaam, String geboortedatum,
-									String geslacht, String email, int telefoonnummer, String adres, String huisnummer,
-									String postcode, String woonplaats, String gebruikersnaam, String wachtwoord) throws SQLException {
-		Account x = new Account(voorletter, tussenvoegsel, achternaam, geboortedatum, geslacht, email, telefoonnummer, adres, huisnummer, postcode, woonplaats, gebruikersnaam, wachtwoord);
-		x.setVoorletter(voorletter);
-		x.setTussenvoegsel(tussenvoegsel);
-		x.setAchternaam(achternaam);
-		x.setGeboortedatum(geboortedatum);
-		x.setGeslacht(geslacht);
-		x.setEmail(email);
-		x.setTelefoonnummer(telefoonnummer);
-		x.setAdres(adres);
-		x.setHuisnummer(huisnummer);
-		x.setPostcode(postcode);
-		x.setWoonplaats(woonplaats);
-		x.setGebruikersnaam(gebruikersnaam);
-		x.setWachtwoord(wachtwoord);
-		
-		if (userDAO.createCharityAccount(x)) {
-			return x;
-		}
-		
-		return x;
-	}
-	
-	
-	public Account addNewAccount(String username, String password, String role, String email, int telefoonnummer, String adres) throws SQLException {
-		System.out.println("TEST1");
-		Account a = new Account(username, password, role, email, telefoonnummer, adres);
-		a.setUsername(username);
-		a.setPassword(password);
-		a.setRole(role);
-		a.setEmail(email);
-		a.setTelefoonnummer(telefoonnummer);
-		a.setAdres(adres);
-		
-		if (userDAO.createP5(a)) {
-			return a;
-		}
-		
-		return a;
-	}
-	
-	public Country addCountry(String code, String iso3, String name, String continent, String region, 
-			double surface, int indepyear, int population, int lifeexpectancy, 
+
+	public Country addCountry(String code, String iso3, String name, String continent, String region,
+			double surface, int indepyear, int population, int lifeexpectancy,
 			int gnp, int gnpoid, String localname, String governmentform,
 			String headofstate, double latitude, double longitude, String capital) throws SQLException {
 		Country c = new Country(code, iso3, name, continent, region, surface, indepyear, population, 
@@ -142,16 +86,7 @@ public class WorldService {
 		return c;
 	}
 	
-	
-//	public boolean deleteCountry(String code) {
-//		for (int i = 0; i < countryDAO.findAll().size(); i++) {
-//			if (countryDAO.findAll().get(i).getCode() == code) {
-//				countryDAO.findAll().remove(i);
-//				return true;
-//			}
-//		}
-//		return false;
-//	}
+
 	
 	public boolean deleteCountry(String code) {
 		boolean resultaat = false;
@@ -163,25 +98,7 @@ public class WorldService {
 		}
 		return resultaat;
 	}
-	
-//	public void updateCountry(String code) {
-//		System.out.println("I'm inside WorldService updateCountry functie!");
-//		Country c = countryDAO.findByCode(code);
-//		System.out.println("I'm inside WS 2");
-//		if (c != null) {
-//			countryDAO.update(c);
-//			
-//		} else throw new IllegalArgumentException("Code does not exicst!");
-//	}
-//	
-//	public void deleteCountry(String code) {
-//		System.out.println("WorldService Functie gestart!");
-//		Country c = countryDAO.findByCode(code);
-//		
-//		if (c != null) {
-//			countryDAO.delete(c);
-//		} else throw new IllegalArgumentException("Code does not exist!");
-//	}
+
 
 	public Country createCountry(String nm, String em) {
 		// TODO Auto-generated method stub

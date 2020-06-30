@@ -144,11 +144,7 @@ function loadCountries() {
 			 cell5.innerHTML = object.population;
 			 cell6.innerHTML = '<input id="'+ object.code + '" type="submit" value="Wijzig">';
 			 cell7.innerHTML = '<input id="'+ object.code + '" type="submit" value="Verwijder">';
-			 
-			 //cell6.innerHTML = '<input id="'+ object.code + '" onclick="Wijzig(' + object.code + ')" type="submit" value="Wijzig">';
-			 //cell7.innerHTML = '<input id="' + object.code + '" onclick="Verwijder(' + object.code + ')" type="submit" value="Verwijder">';
-			 
-			 // querySelector op waarde van value en vervolgens functie uitvoeren.
+
 			 
 			 var valueVerwijder = document.querySelector("div.tabelBox input[value='Verwijder']");
 			 valueVerwijder.addEventListener("click", verwijderFunc);
@@ -161,8 +157,6 @@ function loadCountries() {
 	  });
 }
 
-//console.log(getElementById("voegToe").value);
-//document.getElementById("voegToe").addEventListener("click", addCountryFuncForm);
 
 var voegToe = document.querySelector("#voegToe");
 voegToe.addEventListener("click", addCountryFuncForm);
@@ -298,5 +292,3 @@ window.onclick = function(event) {
 }
 
 
-
-// https://www.mkyong.com/javascript/how-to-access-json-object-in-javascript/
