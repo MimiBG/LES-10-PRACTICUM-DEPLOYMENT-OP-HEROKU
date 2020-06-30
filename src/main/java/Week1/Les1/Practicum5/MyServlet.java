@@ -1,5 +1,5 @@
 package Week1.Les1.Practicum5;
-//test
+
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.Socket;
@@ -23,7 +23,7 @@ public class MyServlet extends Thread {
 
                     String httpResponse = "HTTP/1.1 200 OK\r\n\r\n" + "<h1>It Works!</h1>";
                     os.write(httpResponse.getBytes("UTF-8"));
-                    //Thread.sleep(10000);
+
                     socket.close();
                 }
             }
@@ -31,9 +31,9 @@ public class MyServlet extends Thread {
 
         } catch (IOException ioe) {
             System.out.println("IOexception");
-        } //catch (InterruptedException e) {
+        }
 			// TODO Auto-generated catch block
-			//e.printStackTrace();
-		//}
+
     }
-}	
+}
+

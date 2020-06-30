@@ -292,4 +292,3 @@ window.onclick = function(event) {
 
 
 
-// https://www.mkyong.com/javascript/how-to-access-json-object-in-javascript/

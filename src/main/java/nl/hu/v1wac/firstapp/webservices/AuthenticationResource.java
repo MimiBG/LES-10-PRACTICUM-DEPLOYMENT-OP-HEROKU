@@ -60,7 +60,6 @@ public class AuthenticationResource {
 	      .signWith(SignatureAlgorithm.HS512, key)
 	      .compact();
 	  }
-	} 
+	}
 
-//
 

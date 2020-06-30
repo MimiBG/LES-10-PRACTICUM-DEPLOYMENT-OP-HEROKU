@@ -99,4 +99,3 @@ function loadCountries() {
 
 loadCountries();
 
-// https://www.mkyong.com/javascript/how-to-access-json-object-in-javascript/

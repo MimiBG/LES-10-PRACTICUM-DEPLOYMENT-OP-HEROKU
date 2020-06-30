@@ -13,8 +13,6 @@ import nl.hu.v1wac.firstapp.model.Country;
 public class CountryPostgresDaoImpl extends PostgresBaseDao implements CountryDao {
 
 
-	/***************************** READ methods *****************************/
-
 	private List<Country> selectCountry(String query) {
 		List<Country> results = new ArrayList<Country>();
 
@@ -75,8 +73,7 @@ public class CountryPostgresDaoImpl extends PostgresBaseDao implements CountryDa
 		return selectCountry(
 				"SELECT code, iso3, name, continent, region, surfacearea, population, governmentform, latitude, longitude, capital from country ORDER BY SURFACEAREA DESC limit 10");
 	}
-	
-	/***************************** UPDATE methods *****************************/
+
 
 	
 	public boolean update(Country country) throws SQLException {
@@ -113,7 +110,6 @@ public class CountryPostgresDaoImpl extends PostgresBaseDao implements CountryDa
 
 	
 
-	/***************************** DELETE methods *****************************/
 	@Override
 	public boolean delete(Country country) {
 		boolean result = false;
@@ -137,7 +133,7 @@ public class CountryPostgresDaoImpl extends PostgresBaseDao implements CountryDa
 		return result;
 	}
 	
-	/********************* CREATE COUNTRY ***********************/
+
 	public boolean create(Country country) throws SQLException {
 		boolean resultaat  = false;
 		

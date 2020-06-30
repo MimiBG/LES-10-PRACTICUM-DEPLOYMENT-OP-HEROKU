@@ -28,3 +28,4 @@ public class CalculatorResource {
 		return Response.ok(JSON).build();
 	}
 }
+

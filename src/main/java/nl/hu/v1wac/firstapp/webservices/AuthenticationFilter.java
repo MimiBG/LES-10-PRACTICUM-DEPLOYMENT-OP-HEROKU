@@ -48,3 +48,4 @@ public class AuthenticationFilter implements ContainerRequestFilter {
     System.out.println(msc);
   }
 }
+

@@ -10,3 +10,4 @@ public interface UserDao {
 	public String zoekRolGebruiker(String gebruikersnaam, String wachtwoord) throws SQLException;
 	
 }
+

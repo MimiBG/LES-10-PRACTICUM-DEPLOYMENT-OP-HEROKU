@@ -62,3 +62,4 @@ public class FileResource {
 	    return Response.status(404).build();
 	}
 }
+

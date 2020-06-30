@@ -18,8 +18,7 @@ public class Country {
 	private double latitude;
 	private double longitude;
 	private String capital;
-	
-	//Constructor voor de functie gegevens wijzigen
+
 	public Country(String code, String iso3, String nm, String cap, String ct, String reg, double sur, int pop, String gov, double lat, double lng) {
 		this.code = code; 
 		this.iso3 = iso3;
@@ -33,8 +32,7 @@ public class Country {
 		this.latitude = lat;
 		this.longitude = lng;
 	}
-	
-	//Constructor voor de functie land aanmaken
+
 	public Country(String code, String iso3, String name, String continent, String region, 
 					double surface, int indepyear, int population, int lifeexpectancy, 
 					int gnp, int gnpoid, String localname, String governmentform,

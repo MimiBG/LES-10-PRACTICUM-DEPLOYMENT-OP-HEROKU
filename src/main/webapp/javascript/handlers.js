@@ -21,6 +21,7 @@ document.querySelector("#put").addEventListener("click", function () {
 
 
 
+
 document.querySelector("#delete").addEventListener("click", function () {
     var id = document.querySelector("#delete_id").value;
 
