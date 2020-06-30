@@ -1,0 +1,35 @@
+body {
+    background-color: #d7d5cd;
+}
+
+#titel1 {
+	color: white;
+	background-color: #a0998d;
+}
+
+#titel2 {
+	color: white;
+	background-color: #a0998d;
+}
+
+#mijnTabel {
+	background-color: #b1ada5;
+}
+
+#titel3 {
+	color: white;
+	background-color: #a0998d;
+}
+
+
+.cell {
+	cursor: cell;
+}
+
+#mijnTabel tr:hover {
+    background-color: white;
+}
+
+#mijnTabel {
+	width : 100%;
+}

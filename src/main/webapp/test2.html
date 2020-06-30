@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<title>RestExample</title>
+<meta charset="utf-8" />
+<style type="text/css">
+    form, div { margin: 10px; }
+</style>
+<body>
+    <form id="POSTcustomerForm">
+        <input type="text" name="name" />
+        <input type="text" name="email" />
+        <input type="button" id="post" value="Post!" />
+    </form>
+
+    <form id="PUTcustomerForm">
+        <input type="text" id="put_id" />
+        <input type="text" name="iso3" placeholder="iso3" />
+        <input type="text" name="name" placeholder="name" />
+        <!-- <input type="text" name="capital" placeholder="capital" />
+        <input type="text" name="continent" placeholder="continent"/>
+        <input type="text" name="region" />
+        <input type="text" name="surfance" />
+        <input type="text" name="population" />
+        <input type="text" name="government" />
+        <input type="text" name="latitude" />
+        <input type="text" name="longitude" /> -->
+        <input type="button" id="put" value="Put!" />
+    </form>
+
+    <div id="DELETEcustomerDiv">
+        <input type="text" id="delete_id" />
+        <input type="button" id="delete" value="Delete!" />
+    </div>
+
+    <div id="GETcustomerDiv">
+        <input type="button" id="get" value="Get!" />
+    </div>
+
+	<form id="POSTuploadForm">
+		<input type="text" name="username" placeholder="other input" />
+		Select a file: <input type="file" name="file" />
+		<input type="button" id="upload" value="Post Upload!" />
+	</form>
+
+	<script src="javascript/handlers.js"></script>
+</body>
+
+</html>
