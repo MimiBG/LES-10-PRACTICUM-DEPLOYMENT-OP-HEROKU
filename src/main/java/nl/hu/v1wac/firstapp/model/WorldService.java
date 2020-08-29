@@ -94,7 +94,7 @@ public class WorldService {
 		if (c != null) {
 			resultaat = countryDAO.delete(c);
 		} else {
-			throw new IllegalArgumentException("Code bestaat niet!");
+			throw new IllegalArgumentException(Constants.CODE_BESTAAT_NIET);
 		}
 		return resultaat;
 	}
