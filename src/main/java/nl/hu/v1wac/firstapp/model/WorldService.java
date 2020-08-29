@@ -3,18 +3,14 @@ package nl.hu.v1wac.firstapp.model;
 import java.sql.SQLException;
 import java.util.List;
 
-import domain.Account;
 import nl.hu.v1wac.firstapp.persistence.CountryDao;
 import nl.hu.v1wac.firstapp.persistence.CountryPostgresDaoImpl;
-import persistence.UserDao;
-import persistence.UserPostgresDaoImpl;
+import utils.Constants;
 
 public class WorldService {
 	
 	private CountryDao countryDAO = new CountryPostgresDaoImpl();
-	private UserDao userDAO = new UserPostgresDaoImpl();
 
-	
 	public List<Country> getAllCountries() {
 		return countryDAO.findAll();
 	}
@@ -29,29 +25,25 @@ public class WorldService {
 
 	public Country getCountryByCode(String code) {
 		Country result = null;
-		
-		for (Country c : countryDAO.findAll()) {
-			if (c.getCode().equals(code)) {
-				result = c;
+		for (Country country : countryDAO.findAll()) {
+			if (country.getCode().equals(code)) {
+				result = country;
 				break;
 			}
 		}
-		
 		return result;
 	}
 	public Country updateCountry(String code, String name, String capital, String region, double surface, int population) throws SQLException {
-		Country c = countryDAO.findByCode(code);
-			c.setName(name);
-			c.setCapital(capital);
-			c.setRegion(region);
-			c.setSurface(surface);
-			c.setPopulation(population);
-			if(countryDAO.update(c)) {
+		Country country = countryDAO.findByCode(code);
+			country.setName(name);
+			country.setCapital(capital);
+			country.setRegion(region);
+			country.setSurface(surface);
+			country.setPopulation(population);
+			if(countryDAO.update(country)) {
 				return countryDAO.findByCode(code);
 			}
-			
-		
-		return c;
+		return country;
 	}
 	
 
@@ -59,44 +51,24 @@ public class WorldService {
 			double surface, int indepyear, int population, int lifeexpectancy,
 			int gnp, int gnpoid, String localname, String governmentform,
 			String headofstate, double latitude, double longitude, String capital) throws SQLException {
-		Country c = new Country(code, iso3, name, continent, region, surface, indepyear, population, 
+		Country country = new Country(code, iso3, name, continent, region, surface, indepyear, population, 
 								lifeexpectancy, gnp, gnpoid, localname, governmentform, 
 								headofstate, latitude, longitude, capital);
-		c.setCode(code);
-		c.setIso3(iso3);
-		c.setName(name);
-		c.setContinent(continent);
-		c.setRegion(region);
-		c.setSurface(surface);
-		c.setIndepyear(indepyear);
-		c.setPopulation(population);
-		c.setLifeexpectancy(lifeexpectancy);
-		c.setGnp(gnpoid);
-		c.setGnpoid(gnpoid);
-		c.setLocalname(localname);
-		c.setGovernment(governmentform);
-		c.setHeadofstate(headofstate);
-		c.setLatitude(latitude);
-		c.setLongitude(longitude);
-		c.setCapital(capital);
-		
-		if(countryDAO.create(c)) {
-			return c;
+		if(countryDAO.create(country)) {
+			return country;
 		}
-		return c;
+		return country;
 	}
 	
-
-	
 	public boolean deleteCountry(String code) {
-		boolean resultaat = false;
-		Country c = countryDAO.findByCode(code);
-		if (c != null) {
-			resultaat = countryDAO.delete(c);
+		boolean result = false;
+		Country country = countryDAO.findByCode(code);
+		if (country != null) {
+			result = countryDAO.delete(country);
 		} else {
-			throw new IllegalArgumentException("Code bestaat niet!");
+			throw new IllegalArgumentException(Constants.CODE_BESTAAT_NIET);
 		}
-		return resultaat;
+		return result;
 	}
 
 
